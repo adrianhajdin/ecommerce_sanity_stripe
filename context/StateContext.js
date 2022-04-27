@@ -33,6 +33,13 @@ export const StateContext = ({ children }) => {
       
       setCartItems([...cartItems, { ...product }]);
     }
+    
+    setCartItems((prevCartItems) =>
+				prevCartItems.sort((a, b) => {
+					// Change this to whatever you want to sort by.
+					return b.quantity - a.quantity;
+				})
+			);
 
     toast.success(`${qty} ${product.name} added to the cart.`);
   } 
@@ -53,11 +60,23 @@ export const StateContext = ({ children }) => {
 
     if(value === 'inc') {
       setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity + 1 } ]);
+      setCartItems((prevCartItems) =>
+				prevCartItems.sort((a, b) => {
+					// Change this to whatever you want to sort by.
+					return b.quantity - a.quantity;
+				})
+			);
       setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price)
       setTotalQuantities(prevTotalQuantities => prevTotalQuantities + 1)
     } else if(value === 'dec') {
       if (foundProduct.quantity > 1) {
         setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity - 1 } ]);
+        setCartItems((prevCartItems) =>
+				prevCartItems.sort((a, b) => {
+					// Change this to whatever you want to sort by.
+					return b.quantity - a.quantity;
+				})
+			);
         setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price)
         setTotalQuantities(prevTotalQuantities => prevTotalQuantities - 1)
       }
