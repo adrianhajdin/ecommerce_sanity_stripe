@@ -50,14 +50,21 @@ export const StateContext = ({ children }) => {
     foundProduct = cartItems.find((item) => item._id === id)
     index = cartItems.findIndex((product) => product._id === id);
     const newCartItems = cartItems.filter((item) => item._id !== id)
+    // ItemIndex maps through the current cart items and returns the index of the current item along with a bunch of undefined values
+    // then filters through the returned array and gets rid of all the undefined values leaving just the current items index at the index of 0 in the new array
+    const itemIndex = cartItems.map((item, index) => {if(item._id === id) {return index}}).filter((item) => item !== undefined)[0]
 
     if(value === 'inc') {
-      setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity + 1 } ]);
+      // Here we update the newCartItems array with the new product quantity at the correct index before updating the state with the new array
+      newCartItems.splice(itemIndex, 0,  { ...foundProduct, quantity: foundProduct.quantity + 1})
+      setCartItems([...newCartItems]);
       setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price)
       setTotalQuantities(prevTotalQuantities => prevTotalQuantities + 1)
     } else if(value === 'dec') {
       if (foundProduct.quantity > 1) {
-        setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity - 1 } ]);
+        // Same thing here but we subtract instead of add to the quantity
+        newCartItems.splice(itemIndex, 0,  { ...foundProduct, quantity: foundProduct.quantity - 1})
+        setCartItems([...newCartItems]);
         setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price)
         setTotalQuantities(prevTotalQuantities => prevTotalQuantities - 1)
       }
