@@ -48,18 +48,27 @@ export const StateContext = ({ children }) => {
 
   const toggleCartItemQuanitity = (id, value) => {
     foundProduct = cartItems.find((item) => item._id === id)
-    index = cartItems.findIndex((product) => product._id === id);
-    const newCartItems = cartItems.filter((item) => item._id !== id)
-
+    const newCartItems = cartItems
     if(value === 'inc') {
-      setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity + 1 } ]);
       setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price)
       setTotalQuantities(prevTotalQuantities => prevTotalQuantities + 1)
+      /* I am using a  for loop rather than editing the single object by using it's id which is returning me a array with the modified object quantity*/
+      /* The issue with the las code was that we are appending the founded object to a filtered object which is always comes at last
+      for(const obj of newCartItems){
+        if (obj.id == foundProduct.id) {
+          obj.quantity = obj.quantity + 1;
+        }
+      }
+      setCartItems(newCartItems);
     } else if(value === 'dec') {
       if (foundProduct.quantity > 1) {
-        setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity - 1 } ]);
-        setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price)
-        setTotalQuantities(prevTotalQuantities => prevTotalQuantities - 1)
+      // I am using a  for loop rather than editing the single object by using it's id which is returning me a array with the modified object quantity
+      for(const obj of newCartItems){
+        if (obj.id == foundProduct.id) {
+          obj.quantity = obj.quantity - 1;
+        }
+      }
+      setCartItems(newCartItems);
       }
     }
   }
