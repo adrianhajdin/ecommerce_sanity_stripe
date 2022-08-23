@@ -41,7 +41,7 @@ const Cart = () => {
         onClick={() => setShowCart(false)}>
           <AiOutlineLeft />
           <span className="heading">Your Cart</span>
-          <span className="cart-num-items">({totalQuantities} items)</span>
+          <span className="cart-num-items">({totalQuantities == 1 ? `${totalQuantities} item` : `${totalQuantities} items`})</span>
         </button>
 
         {cartItems.length < 1 && (
@@ -67,7 +67,7 @@ const Cart = () => {
               <div className="item-desc">
                 <div className="flex top">
                   <h5>{item.name}</h5>
-                  <h4>${item.price}</h4>
+                  <h4>${item.price * item.quantity}</h4>
                 </div>
                 <div className="flex bottom">
                   <div>
