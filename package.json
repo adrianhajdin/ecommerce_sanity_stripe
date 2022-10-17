@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.17.9",
-    "@sanity/client": "^3.2.0",
+    "@sanity/client": "^3.4.1",
     "@sanity/image-url": "^1.0.1",
     "@stripe/stripe-js": "^1.25.0",
     "canvas-confetti": "^1.5.1",
