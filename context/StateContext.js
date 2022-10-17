@@ -11,31 +11,36 @@ export const StateContext = ({ children }) => {
   const [qty, setQty] = useState(1);
 
   let foundProduct;
-  let index;
 
   const onAdd = (product, quantity) => {
-    const checkProductInCart = cartItems.find((item) => item._id === product._id);
-    
-    setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity);
-    setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity);
-    
+    const checkProductInCart = cartItems.find(item => item._id === product._id);
+
+    setTotalPrice(prevTotalPrice => prevTotalPrice + (product.price * quantity));
+    setTotalQuantities(prevTotalQuantities => prevTotalQuantities + quantity);
+
     if(checkProductInCart) {
-      const updatedCartItems = cartItems.map((cartProduct) => {
-        if(cartProduct._id === product._id) return {
-          ...cartProduct,
-          quantity: cartProduct.quantity + quantity
+      const updatedCartItems = cartItems.map( cartProduct => {
+        if(cartProduct._id === product._id){
+          return {
+            ...cartProduct,
+            quantity: cartProduct.quantity + quantity
+          }
         }
-      })
+        else{
+          return {
+            ...cartProduct
+          }
+        }
+      });
 
       setCartItems(updatedCartItems);
-    } else {
-      product.quantity = quantity;
-      
-      setCartItems([...cartItems, { ...product }]);
-    }
+      toast.success(`${qty} ${product.name} added to the cart.`);
 
-    toast.success(`${qty} ${product.name} added to the cart.`);
-  } 
+    } else{
+        product.quantity  = quantity;    // Update the product quantity
+        setCartItems([...cartItems, {...product }])   // Update cart items
+    }
+  }
 
   const onRemove = (product) => {
     foundProduct = cartItems.find((item) => item._id === product._id);
@@ -97,7 +102,7 @@ export const StateContext = ({ children }) => {
   const decQty = () => {
     setQty((prevQty) => {
       if(prevQty - 1 < 1) return 1;
-     
+    
       return prevQty - 1;
     });
   }
