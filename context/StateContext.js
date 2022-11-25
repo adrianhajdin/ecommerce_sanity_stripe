@@ -52,12 +52,31 @@ export const StateContext = ({ children }) => {
     const newCartItems = cartItems.filter((item) => item._id !== id)
 
     if(value === 'inc') {
-      setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity + 1 } ]);
+      //change to stop shuffling of items while changing cart amount 
+      setCartItems((prevCartItems)=>{
+                const newCart = prevCartItems.map((item)=>{
+                    if(item._id===id){
+                        return {...item, quantity: item.quantity + 1};
+                    }
+                    return item;
+                });
+                return newCart;
+            })      
       setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price)
       setTotalQuantities(prevTotalQuantities => prevTotalQuantities + 1)
     } else if(value === 'dec') {
       if (foundProduct.quantity > 1) {
-        setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity - 1 } ]);
+         //change to stop shuffling of items while changing cart amount 
+        setCartItems((prevCartItems)=>{
+                  const newCart = prevCartItems.map((item)=>{
+                      if(item._id===id){
+                          return {...item, quantity: item.quantity - 1};
+                      }
+                      return item;
+                  });
+                  return newCart;
+              })     
+        
         setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price)
         setTotalQuantities(prevTotalQuantities => prevTotalQuantities - 1)
       }
