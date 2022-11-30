@@ -1,0 +1,130 @@
+<!doctype html><html><head><meta charSet="utf-8"/><title>ecommerce – Sanity</title><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/><meta name="robots" content="noindex"/><style>html {background-color: #f1f3f6;}</style><link rel="stylesheet" href="/static/css/main.css?be259c2c14efb4def540"/><link rel="subresource" href="/static/js/vendor.bundle.js?ab88ff17606cd5c3c761"/><link rel="subresource" href="/static/js/app.bundle.js?be259c2c14efb4def540"/><link rel="icon" href="/static/favicon.ico"/></head><body id="sanityBody"><div id="sanity"><div class="sanity-app-loading-screen"><style type="text/css">
+.sanity-app-loading-screen {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  text-align: center;
+  background-color: white;
+  color: #1C2430;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.sanity-app-loading-screen__inner {
+  margin: auto;
+}
+
+.sanity-app-loading-screen__text {
+  margin-top: 2rem;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.sanity-app-loading-screen__loader {
+  display: block;
+  animation: pulse var(--time) cubic-bezier(.11,0,.27,1) infinite;
+  --time: 3s;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale3d(0.75, 0.75, 0.75);
+  }
+
+  50% {
+    transform: scale3d(1, 1, 1);
+  }
+
+  to {
+    transform: scale3d(0.75, 0.75, 0.75);
+  }
+}
+</style><div class="sanity-app-loading-screen__inner"><div class="sanity-app-loading-screen__loader"><svg width="73" height="95" viewBox="0 0 73 95" fill="none" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision"><style>
+  .fillShape {
+    stroke-width: 40;
+    stroke: #F03E2F;
+    opacity: 0;
+  }
+
+  .fillShape--bottom {
+    stroke-dasharray: 90;
+    stroke-dashoffset: 85;
+    animation: bottom var(--time) ease-in infinite;
+  }
+
+  .fillShape--middle {
+    stroke-dasharray: 115;
+    stroke-dashoffset: 110;
+    animation: middle var(--time) linear infinite;
+  }
+
+  .fillShape--top {
+    stroke-dasharray: 77;
+    stroke-dashoffset: 72;
+    animation: top var(--time) ease-out infinite;
+  }
+
+  @keyframes bottom {
+    0%,
+    85% {
+      stroke-dashoffset: 265;
+      opacity: 0;
+    }
+    15%,
+    64% {
+      stroke-dashoffset: 175;
+      opacity: 0.5;
+    }
+  }
+  @keyframes middle {
+    11%,
+    75% {
+      stroke-dashoffset: 100;
+      opacity: 0;
+    }
+    15% {
+      opacity: 1;
+    }
+    25%,
+    63% {
+      stroke-dashoffset: 225;
+      opacity: 1;
+    }
+  }
+  @keyframes top {
+    22%,
+    70% {
+      opacity: 0;
+      stroke-dashoffset: 226;
+    }
+    25% {
+      opacity: 0.5;
+    }
+    35%,
+    54% {
+      stroke-dashoffset: 149;
+      opacity: 0.5;
+    }
+  }
+</style><mask id="bottom" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="83" height="105"><path d="M56.4905 62.9807C63.6434 67.5637 66.7972 73.9744 66.7972 83.168C60.7987 90.7262 50.4577 95 38.2203 95C17.6963 95 3.17759 84.8102 0.0100098 67.282H19.7851C22.3343 75.3761 29.0748 79.1209 38.0622 79.1209C49.056 79.1209 56.3462 73.2598 56.4905 62.9807" fill="white"></path></mask><g mask="url(#bottom)"><path class="fillShape fillShape--bottom" d="M8 59C9.35605 77.6466 25.4128 87.4032 37.5 87.5C54 87.6322 62 75 71.5 66.5"></path></g><mask id="middle" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="83" height="105"><path d="M7.73317 12.1206C7.73317 24.8871 15.6418 32.5484 31.4729 36.568L48.2521 40.4571C63.238 43.8926 72.3834 52.4472 72.3834 66.3818C72.493 72.4436 70.5187 78.3594 66.7904 83.1404C66.7904 69.2402 59.5963 61.7232 42.2605 57.2157L25.7698 53.471C12.5842 50.4683 2.40806 43.4323 2.40806 28.2952C2.33733 22.4523 4.21324 16.7521 7.74004 12.0931" fill="white"></path></mask><g mask="url(#middle)"><path class="fillShape fillShape--middle" d="M-15.5 8.5C-15.5 12 -1 41.7047 38.3457 48C65.7344 52.3822 69 68 62.8457 74.5C56.6914 81 54.5 82 54.5 82"></path></g><mask id="top" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="83" height="105"><path d="M18.0122 31.1124C11.1411 26.7149 7.70557 20.524 7.70557 12.1138C13.4636 4.59677 23.3648 0 35.5198 0C56.4973 0 68.6317 11.09 71.6275 26.6737H52.5945C50.4988 20.5309 45.2562 15.7348 35.6641 15.7348C25.4399 15.7348 18.4863 21.6852 18.0122 31.1124" fill="white"></path></mask><g mask="url(#top)"><path class="fillShape fillShape--top" d="M9 35C9 21 19 5.49993 40 8.49996C61 11.5 65.3456 29 65.3456 33.5"></path></g></svg></div><div class="sanity-app-loading-screen__text">Connecting to Sanity.io</div></div></div><noscript><div class="sanity-app-no-js__root"><div class="sanity-app-no-js__content"><style type="text/css">
+.sanity-app-no-js__root {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: #fff;
+}
+
+.sanity-app-no-js__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: helvetica, arial, sans-serif;
+}
+</style><h1>JavaScript disabled</h1><p>Please <a href="https://www.enable-javascript.com/">enable JavaScript</a> in your browser and reload the page to proceed.</p></div></div></noscript></div><script>window.onerror = function(m,u,l,c,e) {var p=window.location.port;var h=window.location.protocol+'//'+window.location.hostname+(p?':'+p:'');var r=document.getElementById('sanity');while(r.firstChild){r.removeChild(r.firstChild);}var s=document.createElement('style');s.appendChild(document.createTextNode('html,body,#sanityBody,#sanity,#sanityError{height:100%;}body{-webkit-font-smoothing:antialiased;margin:0;}#sanityError{position:fixed;top:0;left:0;width:100%;height:100%;overflow:auto;background-color:#fff;color:#121923;font-family:-apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Helvetica, Arial, system-ui, sans-serif;font-size:16px;line-height:21px;min-height:100%;}#sanityError>div{background-color:#fff;max-width:960px;margin:0 auto;padding:47px 32px 52px;}@media(min-width:512px){#sanityError>div{padding:47px 84px;}}#sanityError button{-webkit-font-smoothing:inherit;font:inherit;font-weight:500;background-color:#2276FC;color:#fff;padding:7px 12px;border-radius:3px;border:0;}#sanityError button:hover{background-color:#1E63D0;}#sanityError button:active{background-color:#1B50A5;}'));document.head.appendChild(s);var f=document.createElement('div');f.id='sanityError';f.innerHTML='<div><h1 style="font-size:21px;line-height:27px;margin: 0 0 10px;">Unhandled error</h1><p style="color:#66758D;margin:10px 0 14px;">Encountered an unhandled error in this Studio.</p><button class="sanity-error-handler__reload-btn" type="button">Reload page</button><pre style="background-color:#FDEBEA;color:#C3362C;font-size:13px;line-height:17px;padding:8px 12px;border-radius:3px;margin:32px 0 0;overflow:auto;"><code style="font-family:-apple-system-ui-monospace, \'SF Mono\', Menlo, Monaco, Consolas, monospace;">'+e.stack.replaceAll(h,'')+'</code></pre></div>';var b=f.querySelector('.sanity-error-handler__reload-btn');if(b){b.onclick=function() {window.location.reload();}};r.appendChild(f);};</script><script>/* Script loader */
+!function(e,t){if(void 0!==window.fetch)t.forEach(function(t){var o=e.createElement("script");o.src=t,o.async=!1,e.head.appendChild(o)});else{var o=e.getElementById("sanity");'<div style="height:100%;width: 100%;position: absolute;top:45%;text-align:center;font-family:helvetica, arial, sans-serif;">',"<h1>Browser not supported</h1>",'<p>Please use a modern browser such as <a href="https://www.google.com/chrome/">Chrome</a> or <a href="https://www.getfirefox.org/">Firefox</a>.</p>',"</div>","</div>";var r=o;do{r.style.height="100%",r=r.parentNode}while(r.parentNode);o.innerHTML='<div style="position:relative;height:100%;"><div style="height:100%;width: 100%;position: absolute;top:45%;text-align:center;font-family:helvetica, arial, sans-serif;"><h1>Browser not supported</h1><p>Please use a modern browser such as <a href="https://www.google.com/chrome/">Chrome</a> or <a href="https://www.getfirefox.org/">Firefox</a>.</p></div></div>'}}(document,["/static/js/vendor.bundle.js?ab88ff17606cd5c3c761","/static/js/app.bundle.js?be259c2c14efb4def540"]);</script></body></html>
