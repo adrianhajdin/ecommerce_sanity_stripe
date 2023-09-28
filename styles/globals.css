@@ -11,7 +11,7 @@ body, * {
   width: 0px;
 }
 
-* Fonts */
+/* Fonts */
 :root {
   --font-default: "Lexend Deca", sans-serif;
   --font-primary: 'Roboto', sans-serif;
