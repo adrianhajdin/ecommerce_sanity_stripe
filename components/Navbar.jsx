@@ -21,7 +21,7 @@ const Navbar = () => {
           <li><Link href="/about">About</Link></li>
           <li><Link href="/gallery">Gallery</Link></li>      
           <li><Link href="/events">Events</Link></li>
-          <li><Link href="/chefs">Team</Link></li>
+          <li><Link href="/team">Team</Link></li>
           <li><Link href="/contact">Contact</Link></li>
 
           <button type="button" className="cart-icon" onClick={() => setShowCart(true)}>
@@ -29,6 +29,7 @@ const Navbar = () => {
             <span className="cart-item-qty">{totalQuantities}</span>
           </button>
           <li><Link className="login" href="/login">login</Link></li>
+           <li><Link className="login" href="/signup">sign up</Link></li>
         </ul>
 
          {showCart && <Cart />}
